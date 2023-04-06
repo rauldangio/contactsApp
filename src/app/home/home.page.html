@@ -7,16 +7,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar  (IonChange)="searchContacts($event)"></ion-searchbar>
+  <ion-searchbar [debounce]="1000" (ionInput)="handleChange($event)"></ion-searchbar>
 
-  <ion-list >
-      <ion-item *ngFor="let contact of contacts" (click)="saveContact(contact)">
-        <ion-label>{{ contact.name }}</ion-label>
-      </ion-item>
-  </ion-list>
+<ion-list>
+  <ion-item *ngFor="let result of results"  (click)="saveContact(result)">
+    <ion-label>{{ result.name }}</ion-label>
+  </ion-item>
+</ion-list>
 
-  <ion-item></ion-item>
-  <ion-item></ion-item>
-  <ion-item></ion-item>
-  <ion-item></ion-item>
+
 </ion-content>

@@ -37,25 +37,33 @@ export class HomePage {
   },
   {
     id: 4,
-    name: 'ronan',
+    name: 'sarah',
     phone: '14 98721042',
-    email: 'ronan@email.tld',
-    photo: 'https://adotebicho.com.br/storage/files/br/720/thumb-816x460-59c5440e569f85ddea318ef9e1a2cdff.jpg'
+    email: 'sarah@email.tld',
+    photo: 'https://media.istockphoto.com/id/486914749/pt/foto/hippy-c%C3%A3o.jpg?s=1024x1024&w=is&k=20&c=ZhGGYVGS5BGKeB2bdze5aufFfEqUV9Z7eicZgqWrwg0='
   },
   {
     id: 5,
-    name: 'vitao',
+    name: 'mirella',
+    phone: '19 998621342',
+    email: 'mirella@email.tld',
+    photo: 'https://love.doghero.com.br/wp-content/uploads/2018/11/shutterstock_143747656.jpg'
+  },
+  {
+    id: 6,
+    name: 'VITAO',
     phone: '19 998621342',
     email: 'vitao@email.tld',
-    photo: 'https://www.portaldodog.com.br/cachorros/wp-content/uploads/2017/11/por-que-os-caes-soltam-tantos-gases-pdd1.jpg'
+    photo: 'https://www.dicionarioinformal.com.br/image/c/135.jpg'
   }]
 
+  results = [...this.contacts]
 
   constructor(
     public dataService: DataService,
     public route: Router
     ) {}
-  
+
     searchContacts(event: any){
       console.log(event)
     }
@@ -63,7 +71,10 @@ export class HomePage {
   saveContact(contact: Contact){
     this.dataService.saveData('contact',contact)
     this.route.navigateByUrl('contact')
-    console.log(contact)
   }
 
+  handleChange(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.results = this.contacts.filter(d => d.name.toLowerCase().indexOf(query) > -1);
+  }
 }

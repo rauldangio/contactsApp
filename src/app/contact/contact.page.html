@@ -6,6 +6,31 @@
 
 <ion-content [fullscreen]="true">
   <div class="conteiner">
-  <img [src]="contact?.photo" class="profile-picture"> 
+  <img [src]="contact?.photo" class="profile-picture">
+  <ion-item lines="full">
+    <div class="naoseionomedaclasse">
+      <p class="category">Nome:</p>
+    <ion-label> {{contact?.name}}</ion-label>
+     </div>
+     <ion-icon name="person-outline" slot="end"></ion-icon>
+      </ion-item>
+
+  <ion-item lines="full">
+    <div class="naoseionomedaclasse">
+      <p class="category">Telefone:</p>
+    <ion-label> {{contact?.phone}}</ion-label>
+     </div>
+    <ion-icon name="call-outline" slot="end"></ion-icon>
+  </ion-item>
+
+  <ion-item lines="full">
+    <div class="naoseionomedaclasse">
+      <p class="category">Email:</p>
+    <ion-label> {{contact?.email}}</ion-label>
+     </div>
+    <ion-icon name="mail-outline" slot="end"></ion-icon>
+  </ion-item>
+
+  <ion-button (click)="voltar()">VOLTAR</ion-button>
   </div>
 </ion-content>
